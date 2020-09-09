@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+
+<head>
+    <meta charset="utf-8">
+    <title>Loading..</title>    
+    <meta name="description" content="place keywords for search engines here">
+    <meta name="keywords"    content="this is an html5 document.">
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">    
+</head>
+
+<body>
+Please open developer tools and look at console
+
+<script>  
+const socket = new WebSocket('wss://localhost:18333');
+
+// Connection opened
+socket.addEventListener('open', function (event) {
+    socket.send('Bergur að senda skilaboð á vefþjoninn');
+});
+
+// Listen for messages
+socket.addEventListener('message', function (event) {
+    console.log('Fékk skilaboð frá vefþjóninum:', event.data);
+});
+</script>
+</body>
+</html>
+
